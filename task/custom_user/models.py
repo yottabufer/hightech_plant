@@ -26,12 +26,12 @@ class User(AbstractBaseUser, PermissionsMixin):
     Модель для Пользователя
     """
     uuid = models.UUIDField(primary_key=True, default=uuid4, editable=False, unique=True, db_index=True)
-    email = models.EmailField(unique=True, verbose_name='email')
+    email = models.EmailField(unique=True, verbose_name='email', db_index=True)
 
     date_joined = models.DateTimeField(auto_now_add=True, verbose_name='Дата присоединения')
     time_updated = models.DateTimeField(auto_now=True, verbose_name='время изменения')
 
-    is_active = models.BooleanField(default=True, verbose_name='Активный')
+    is_active = models.BooleanField(default=False, verbose_name='Активный')
     is_staff = models.BooleanField(default=False, verbose_name='Персонал')
     is_superuser = models.BooleanField(default=False, verbose_name='Администратор')
 
