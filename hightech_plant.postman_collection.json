@@ -1,0 +1,428 @@
+{
+	"info": {
+		"_postman_id": "18ff0007-4b9b-4e81-a483-d259a6d091e5",
+		"name": "hightech_plant",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22090825"
+	},
+	"item": [
+		{
+			"name": "register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "user1@mail.ru",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "pass",
+							"description": " ",
+							"type": "text"
+						},
+						{
+							"key": "first_name",
+							"value": "Первое имя",
+							"type": "text"
+						},
+						{
+							"key": "last_name",
+							"value": "Второе имя",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/api/register/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"register",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "actiavte",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "psyhosocail@mail.ru",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "pass",
+							"description": " ",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/activate/?uuid=Вставьте ссылку из ендпоинта register в адресную строку",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"activate",
+						""
+					],
+					"query": [
+						{
+							"key": "uuid",
+							"value": "Вставьте ссылку из ендпоинта register в адресную строку"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "auth",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "user1@mail.ru",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "pass",
+							"description": " ",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/api/auth/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"auth",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user-list",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 652e98dc83408478754bef2623fd8cf2d97cbdc6",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8000/api/user-list/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"user-list",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "profile",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 652e98dc83408478754bef2623fd8cf2d97cbdc6",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8000/api/profile/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"profile",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "edit-profile",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 652e98dc83408478754bef2623fd8cf2d97cbdc6",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "first_name",
+							"value": "Новое первое имя",
+							"type": "text"
+						},
+						{
+							"key": "last_name",
+							"value": "Новое второе имя",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/api/edit-profile/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"edit-profile",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "reset-password",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "user1@mail.ru",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/api/reset-password/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"reset-password",
+						""
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "qwer321111@mail.ru",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "new-password",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "new_password",
+							"value": "pass1e2r3r",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "user1@mail.ru",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/new-password/?uuid=03c2001e-b459-4b6f-91d8-304677fc7da6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"new-password",
+						""
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "qwer32111@mail.ru",
+							"disabled": true
+						},
+						{
+							"key": "uuid",
+							"value": "03c2001e-b459-4b6f-91d8-304677fc7da6"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "change-password",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 652e98dc83408478754bef2623fd8cf2d97cbdc6",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "old_password",
+							"value": "pass1e2r3r",
+							"type": "text"
+						},
+						{
+							"key": "new_password",
+							"value": "1s2d3fpass",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/api/change-password/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"change-password",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "change-email",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 652e98dc83408478754bef2623fd8cf2d97cbdc6",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "new_email",
+							"value": "new1@mail.ru",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/api/change-email/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"change-email",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "verified-email",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "uuid",
+							"value": "03c2001e-b459-4b6f-91d8-304677fc7da6",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "new1@mail.ru",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/verified-email/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"verified-email",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

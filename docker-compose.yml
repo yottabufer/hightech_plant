@@ -1,0 +1,41 @@
+services:
+  hightech_plant:
+    build:
+      context: .
+    ports:
+      - "8000:8000"
+    networks:
+      - network_hightech_plant
+    depends_on:
+      database:
+        condition: service_healthy
+    environment:
+      DB_HOST: database
+      DB_NAME: dbname
+      DB_USER: db_user
+      DB_PASS: pass
+    volumes:
+      - ./hightech_plant:/hightech_plant
+    command: >
+      sh -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+
+  database:
+    container_name: db-hightech_plant
+    image: postgres:latest
+    environment:
+      - POSTGRES_DB=dbname
+      - POSTGRES_USER=db_user
+      - POSTGRES_PASSWORD=pass
+    ports:
+      - "5432:5432"
+    networks:
+      - network_hightech_plant
+    restart: always
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready", "-U", "db_user" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+networks:
+  network_hightech_plant:

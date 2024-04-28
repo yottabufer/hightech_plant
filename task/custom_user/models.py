@@ -27,6 +27,8 @@ class User(AbstractBaseUser, PermissionsMixin):
     """
     uuid = models.UUIDField(primary_key=True, default=uuid4, editable=False, unique=True, db_index=True)
     email = models.EmailField(unique=True, verbose_name='email', db_index=True)
+    first_name = models.CharField(max_length=30, default='', verbose_name='Имя')
+    last_name = models.CharField(max_length=30, default='', verbose_name='Фамилия')
 
     date_joined = models.DateTimeField(auto_now_add=True, verbose_name='Дата присоединения')
     time_updated = models.DateTimeField(auto_now=True, verbose_name='время изменения')
@@ -34,6 +36,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     is_active = models.BooleanField(default=False, verbose_name='Активный')
     is_staff = models.BooleanField(default=False, verbose_name='Персонал')
     is_superuser = models.BooleanField(default=False, verbose_name='Администратор')
+    is_email_verified = models.BooleanField(default=False, verbose_name='Подтвержден email')
 
     objects = UserManager()
 
